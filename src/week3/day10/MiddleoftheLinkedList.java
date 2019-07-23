@@ -25,6 +25,22 @@ public class MiddleoftheLinkedList {
         node4.next = node5;
 
         System.out.println(middleNode(node1).value);
+
+        deleteNode(node3);
+        printList(node1);
+    }
+
+    private static void printList(Node node1) {
+        Node head = node1;
+        while (head != null) {
+            System.out.print(head.value + " ");
+            head = head.next;
+        }
+    }
+
+    private static void deleteNode(Node node3) {
+        node3.value = node3.next.value;
+        node3.next = node3.next.next;
     }
 
     private static Node middleNode(Node head) {
