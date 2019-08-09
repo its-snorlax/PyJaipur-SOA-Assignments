@@ -26,8 +26,30 @@ public class MiddleoftheLinkedList {
 
         System.out.println(middleNode(node1).value);
 
+
         deleteNode(node3);
         printList(node1);
+        System.out.println();
+
+        printList(swapPairs(node1));
+    }
+
+    private static Node swapPairs(Node head) {
+        Node result = head.next;
+
+        while (head != null && head.next != null) {
+            Node first = head;
+            Node second = head.next;
+            Node third = second.next;
+            Node fourth = third == null ? null : third.next;
+
+            first.next = fourth != null ? fourth : third;
+            Node temp = second.next;
+            second.next = first;
+
+            head = temp;
+        }
+        return result;
     }
 
     private static void printList(Node node1) {
@@ -53,6 +75,4 @@ public class MiddleoftheLinkedList {
         }
         return slow;
     }
-
-
 }
